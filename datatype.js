@@ -57,4 +57,35 @@ const objectString = new String('hello world');
 console.log(typeof primitiveString);
 console.log(typeof objectString);
 
+// ----------------------
 
+/* 
+HTML Templates are commonly used in frontend development for creating HTML templates dynamically: 
+It uses template string syntax, which allows for embedded expressions inside the string, such as ${itemName} and ${itemDescription}
+
+*/
+const itemName = 'Smartphone';
+const itemDescription = 'the latest model with adavanced features.';
+
+const htmlTemplate = `
+    <div class='item'>
+        <h2>${itemName}</h2>
+        <p>${itemDescription}</p>
+    </div>
+`;
+
+// gets the container from the HTML by its ID
+const itemContainer = document.getElementById('item-container');
+
+// inerting the template into the contianer
+// assigning htmlTemplate to itemContainer.innerHTML which replaces the contents of the itemContainer element with the HTML structure inside htmlTemplate.
+itemContainer.innerHTML = htmlTemplate;
+
+// function to insert the template into the page
+// need to hide the above two lines of code, because it's already there before clicking the button
+function displayProduct() {
+    document.getElementById('item-container').innerHTML = htmlTemplate;
+}
+
+
+// ----------------------
