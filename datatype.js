@@ -62,7 +62,6 @@ console.log(typeof objectString);
 /* 
 HTML Templates are commonly used in frontend development for creating HTML templates dynamically: 
 It uses template string syntax, which allows for embedded expressions inside the string, such as ${itemName} and ${itemDescription}
-
 */
 const itemName = 'Smartphone';
 const itemDescription = 'the latest model with adavanced features.';
@@ -86,6 +85,5 @@ itemContainer.innerHTML = htmlTemplate;
 function displayProduct() {
     document.getElementById('item-container').innerHTML = htmlTemplate;
 }
-
 
 // ----------------------
