@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Arrays are generally described as "list-like objects"; they are basically single objects that contain multiple values stored in a list. Array objects can be stored in variables and dealt with in much the same way as any other type of value, the difference being that we can access each value inside the list individually, and do super useful and efficient things with the list, like loop through it and do the same thing to every value. Maybe we've got a series of product items and their prices stored in an array, and we want to loop through them all and print them out on an invoice, while totaling all the prices together and printing out the total price at the bottom.
+    <br>    
+    If we didn't have arrays, we'd have to store every item in a separate variable, then call the code that does the printing and adding separately for each item. This would be much longer to write out, less efficient, and more error-prone. If we had 10 items to add to the invoice it would already be annoying, but what about 100 items, or 1000? We'll return to this example later on in the article.
+
+    <script>
+        const shopping = ["bread", "milk", "cheese", "hummus", "noodles"];
+
+        const sequence = [1, 1, 2, 3, 5, 8, 13];
+        const mix = ["tree", 795, [0, 1, 2]];
+
+        console.log(shopping.length); //5
+        console.log(shopping[0]) // bread
+        console.log(shopping); //['bread', 'milk', 'cheese', 'hummus', 'noodles']
+
+        shopping[0] = 'tahini';
+        console.log(shopping) //shopping will now return [ "tahini", "milk", "cheese", "hummus", "noodles" ]
+        
+        /*---------------*/
+
+        // array inside an array is called a multidimensional array
+        const random = ["tree", 795, [0, 1, 2]];
+        console.log(random[2][2]); // 2
+
+        console.log(random.indexOf('tree')); //0
+        console.log(random.indexOf(3)) // -1
+        /* 
+            to find the index of 1 in the array random, we need to look at the structure of the array and identify where 1 is located.
+            In this case, 1 is located inside the nested array [0, 1, 2], so we need to access the nested array and find the index within it.
+
+        */
+        const nestedArray = random[2]; // this gives [0,1,2]
+        console.log(nestedArray.indexOf(1)); // 1
+        
+        /*---------------*/   
+
+        const cities = ['manchester', 'london'];
+        console.log(cities);
+
+        //adding items in the array with push()
+        cities.push('brighton');
+        console.log(cities);
+
+        //to add an item at the start of the array use unshift()
+        cities.unshift('liverpool');
+        console.log(cities);
+
+        // To remove the last item from the array use pop()
+        cities.pop();
+        console.log(cities);
+
+        // The pop() method returns the item that was removed. To save that item in a new variable -
+        const removedCity = `removed city ${cities.pop()}`;
+        console.log(removedCity);
+        console.log(cities);
+
+        // To remove the first item from an array, use shift()
+        console.log(`${cities.shift()} was the first item`);
+        console.log(cities); // 'manchester'
+        cities.push('west ham', 'stoke city')
+        
+        // if we know the index of an item which needs to be removed, we cam use splice();
+        // splice expects two arguments, first one would be where to start from, and second argument is no of items to remove
+        const indexOfCity = cities.indexOf('west ham');
+        if(indexOfCity !== -1) {
+            cities.splice(indexOfCity, 1);
+        }
+        console.log(cities); // ['machester','stoke city'} 
+
+        // to access every item in the array we can use for..of
+        for (const city of cities) {
+            console.log(cities);
+        }
+
+        /*---------------*/   
+
+        // The map method is a built-in array method in JavaScript. 
+        // It loops over each item in the array and applies a function to each item, It then returns a new array with the results of applied function.
+        // map automatically handles the looping for, we don't need to write a for loop explicitly.
+        // For each element in the array, it applies the double function and stores the result in a new array.
+        // The code below takes an array of numbers and doubles each number
+        function double(number) {
+            return number * 2;
+        }
+        const numbers = [5, 2, 7, 6];
+        const doubled = numbers.map(double);
+        console.log(doubled); // [ 10, 4, 14, 12 ]
+
+        /*---------------*/   
+
+        // The code below takes an array of strings and returns 
+        // an array containing just the strings that are greater than ~8 characters long.
+
+        function isLong(city) {
+            return city.length > 8;
+        }
+        cities.push('London', "Liverpool", 'Totnes'); // ['manchester', 'stoke city', 'london', 'liverpool', 'totnes']
+        const longer = cities.filter(isLong);
+        console.log(longer); // ['manchester', 'stoke city', 'liverpool']
+
+        /*---------------*/   
+
+        const products = [
+            'Underpants:6.99',
+            'Socks:5.99',
+            'T-shirt:14.99',
+            'Trousers:31.99',
+            'Shoes:23.99',
+        ];
+
+        let total = 0;
+
+        for (const product of products) {
+            const subArray = product.split(':');
+            const name = subArray[0];
+            const price = Number(subArray[1]);
+            total += price;
+            console.log(`${name} — $${price}`);
+        }        
+        console.log(total.toFixed(2));
+
+
+    </script>
+</body>
+</html>
