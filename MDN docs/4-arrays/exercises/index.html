@@ -26,7 +26,7 @@
     <p id="lastItem"></p>
 
     3. 
-    For this array task, we provide you with a starting array, and you will work in somewhat the opposite direction. You need to:
+    For this array task, we provide you with a starting array, and you will work in somewhat the opposite direction. You need to: <br>
 
     Remove the last item in the array.<br>
     Add two new names to the end of the array.<br>
@@ -73,21 +73,29 @@
         document.querySelector('#lastItem').innerHTML = `last item = ${lastItem}`;
 
         /*3*/
+        // Go over each item in the array and add its index number after the name inside parentheses, for example Ryu (0).<br>
+        // Finally, join the array items together in a single string called myString, with a separator of "-".<br>
         let myArray3 = [ "Ryu", "Ken", "Chun-Li", "Cammy", "Guile", "Sakura", "Sagat", "Juri" ];
         const firstArray = document.querySelector('#firstArray');
-        firstArray.innerHTML = `current Array = ${myArray3}`
+        firstArray.innerHTML = `<b>current Array = ${myArray3}`
 
+        // Remove the last item in the array.
         myArray3.pop();
         const lastItemPop = document.querySelector('#lastItemPop')
-        lastItemPop.innerHTML = `current Array = ${myArray3}`;
+        lastItemPop.innerHTML = `1. <b> myArray3.pop() </b> Removes the last item in the array. <br> current Array = ${myArray3}`;
 
+        // Add two new names to the end of the array.<br>
         myArray3.push('name1', 'name2');
         const add2Items = document.querySelector('#add2Items')
-        add2Items.innerHTML = `current Array = ${myArray3}`;
+        add2Items.innerHTML = `2. <b> myArray3.push('name1', 'name2') </b> Adds two new names to the end of the array <br>
+        current Array = ${myArray3}`;
 
+        // Go over each item in the array and add its index number after the name inside parentheses
+        // and join the array items together with a separator of "-"
         const myString3 = myArray3.map((name, index) => `${name} (${index})`).join(" - ");
         const finalArray = document.querySelector('#finalArray')
-        finalArray.innerHTML = `current Array = ${myString3}`;
+        finalArray.innerHTML = `3. <b> const myString3 = myArray3.map((name, index) => \`\${name} (\${index})\`).join(" - "); </b>  <br>
+        current Array = ${myString3}`;
 
         /*4*/
         const birds = [ "Parrots", "Falcons", "Eagles", "Emus", "Caracaras", "Egrets" ];
