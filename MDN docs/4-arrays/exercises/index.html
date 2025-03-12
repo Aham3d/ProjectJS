@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    1.
+    In this task we'd like you to create an array of three items, 
+    stored inside a variable called myArray. The items can be anything you want — how about your favorite foods or bands?
+    Next, modify the first two items in the array using simple bracket notation and assignment. 
+    Then add a new item to the beginning of the array.
+    <button onclick="displayFood()">task 1</button>
+    <p id="items">
+        
+    </p>
+
+    2.
+    Convert the string into an array, removing the + characters in the process. Save the result in a variable called myArray. <br>
+    Store the length of the array in a variable called arrayLength. <br>
+    Store the last item in the array in a variable called lastItem.
+    <p>let myString = 'Ryu+Ken+Chun-Li+Cammy+Guile+Sakura+Sagat+Juri';</p>
+    <p id="string"></p>
+    <p id="arrayLength"></p>
+    <p id="lastItem"></p>
+
+
+    <script>
+        /*1*/
+        let btn = document.querySelector('button');
+        let myFoods = document.querySelector('#items');
+
+        function displayFood() {
+            myFoods.innerHTML = `${myArray}`;
+        }
+
+        const myArray = ['Food1', 'food2', 'food3'];
+        myArray[0] = 'mod1';
+        myArray[1] = 'mod2';
+        myArray.unshift('add1');
+
+        /*2*/
+        let myString = 'Ryu+Ken+Chun-Li+Cammy+Guile+Sakura+Sagat+Juri';
+        let myArray2 = myString.split('+');
+        let arrayLength = myArray2.length;
+        let lastItem = myArray2[arrayLength - 1];
+        
+        document.querySelector('#string').innerHTML = myArray2;
+        document.querySelector('#arrayLength').innerHTML = `length of the array = ${arrayLength}`;
+        document.querySelector('#lastItem').innerHTML = `last item = ${lastItem}`;
+
+    </script>
+</body>
+</html>
