@@ -7,10 +7,10 @@
 </head>
 <body> 
     1.
-    In this task we'd like you to create an array of three items, 
-    stored inside a variable called myArray. The items can be anything you want — how about your favorite foods or bands?
-    Next, modify the first two items in the array using simple bracket notation and assignment. 
-    Then add a new item to the beginning of the array.
+    In this task we'd like you to create an array of three items, <br>
+    stored inside a variable called myArray. The items can be anything you want — how about your favorite foods or bands? <br>
+    Next, modify the first two items in the array using simple bracket notation and assignment. <br>
+    Then add a new item to the beginning of the array.<br>
     <button onclick="displayFood()">task 1</button>
     <p id="items">
         
@@ -24,6 +24,28 @@
     <p id="string"></p>
     <p id="arrayLength"></p>
     <p id="lastItem"></p>
+
+    3. 
+    For this array task, we provide you with a starting array, and you will work in somewhat the opposite direction. You need to:
+
+    Remove the last item in the array.<br>
+    Add two new names to the end of the array.<br>
+    Go over each item in the array and add its index number after the name inside parentheses, for example Ryu (0).<br>
+    Finally, join the array items together in a single string called myString, with a separator of "-".<br>
+    <p id="firstArray"></p>
+    <p id="lastItemPop"></p>
+    <p id="add2Items"></p>
+    <p id="finalArray"></p>
+
+    4. 
+    For this array task, we provide you with a starting array listing the names of some birds.<br>
+
+    Find the index of the "Eagles" item, and use that to remove the "Eagles" item.<br>
+    Make a new array from this one, called eBirds, that contains only birds from the original array whose names begin with the letter "E". <br>
+    Note that startsWith() is a great way to check whether a string starts with a given character.<br>
+    <p id="birdsList"></p>
+    <p id="eagleIndex"></p>
+    <p id="eBirdsList"></p>
 
 
     <script>
@@ -49,6 +71,48 @@
         document.querySelector('#string').innerHTML = myArray2;
         document.querySelector('#arrayLength').innerHTML = `length of the array = ${arrayLength}`;
         document.querySelector('#lastItem').innerHTML = `last item = ${lastItem}`;
+
+        /*3*/
+        let myArray3 = [ "Ryu", "Ken", "Chun-Li", "Cammy", "Guile", "Sakura", "Sagat", "Juri" ];
+        const firstArray = document.querySelector('#firstArray');
+        firstArray.innerHTML = `current Array = ${myArray3}`
+
+        myArray3.pop();
+        const lastItemPop = document.querySelector('#lastItemPop')
+        lastItemPop.innerHTML = `current Array = ${myArray3}`;
+
+        myArray3.push('name1', 'name2');
+        const add2Items = document.querySelector('#add2Items')
+        add2Items.innerHTML = `current Array = ${myArray3}`;
+
+        const myString3 = myArray3.map((name, index) => `${name} (${index})`).join(" - ");
+        const finalArray = document.querySelector('#finalArray')
+        finalArray.innerHTML = `current Array = ${myString3}`;
+
+        /*4*/
+        const birds = [ "Parrots", "Falcons", "Eagles", "Emus", "Caracaras", "Egrets" ];
+        const birdsList = document.querySelector('#birdsList');
+        birdsList.innerHTML = `<b>array of birds</b> - const birds: ${birds}`;
+
+        // Find the index of the "Eagles" item, and use that to remove the "Eagles" item.   
+        const eagleIndex = birds.indexOf('Eagles');
+        birds.splice(eagleIndex,1);
+        const heagleIndex = document.querySelector('#eagleIndex');
+        heagleIndex.innerHTML = `
+        <b>1. Find the index of the "Eagles" item, and use that to remove the "Eagles" item.</b> <br>
+        const eagleIndex = birds.indexOf('Eagles'); <br>
+        birds.splice(eagleIndex,1); <br>
+        result = ${birds}
+        `
+
+        // Make a new array from this one, called eBirds, that contains only birds from the original array whose names begin with the letter "E". 
+        // Note that startsWith() is a great way to check whether a string starts with a given character.        
+        const eBirds = birds.filter(bird => bird.startsWith('E'));
+        const eBirdsList = document.querySelector('#eBirdsList');
+        eBirdsList.innerHTML = `<b> 2. birds starting with E in the list stored in eBird</b> <br> 
+        ebirds = ${eBirds}`;
+
+
 
     </script>
 </body>
