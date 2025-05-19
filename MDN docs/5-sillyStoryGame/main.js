@@ -47,7 +47,7 @@ function result() {
 
     if(customName.value !== '') {
         const name = customName.value;
-        // task 4   
+        // task 4
         newStory = newStory.replaceAll('Bob', name);
     }
 
