@@ -36,7 +36,7 @@ function hello(name = "Chris") {
 hello("Ari"); // Hello Ari!
 hello(); // Hello Chris!
 
-// // ANONYMOUS FUNCTION EXAMPLE
+// ANONYMOUS FUNCTION EXAMPLE
 // EX: When the user presses a key, the browser will call the function you provided, 
 // and will pass it a parameter containing information about this event, including the particular key that the user pressed
 
@@ -47,7 +47,19 @@ hello(); // Hello Chris!
 
 // Instead of defining a separate logKey() function, you can pass an anonymous function into addEventListener():
 let textBox = document.getElementById("textBox");
-textBox.addEventListener("keydown", function (event) {
-  console.log(`You pressed "${event.key}".`);
+// textBox.addEventListener("keydown", function (event) {
+//   console.log(`You pressed "${event.key}".`);
+// });
+
+// ARROW FUNCTION
+let output = document.getElementById("output");
+textBox.addEventListener("keydown", (event) => {
+  output.textContent = `You pressed "${event.key}".`;
 });
 
+// SCOPE
+// When you create a function, the variables and other things defined inside the function are inside their own separate scope, 
+// meaning that they are locked away in their own separate block, unreachable from code outside the functions.
+
+// The top-level outside all your functions is called the global scope. Values defined in the global scope are accessible from everywhere 
+// in the code.
