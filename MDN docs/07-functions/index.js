@@ -63,3 +63,27 @@ textBox.addEventListener("keydown", (event) => {
 
 // The top-level outside all your functions is called the global scope. Values defined in the global scope are accessible from everywhere 
 // in the code.
+
+// Passing information to a function
+// To make a function more reusable you'll often want to pass information into it. If we consider our displayGreeting example above, 
+// it will only display Hello, world!. Not the most useful function one could create. If we want to make it a little more flexible, 
+// like allowing someone to specify the name of the person to greet, we can add a parameter. A parameter (also sometimes called an argument), 
+// is additional information sent to a function.
+function displayGreeting(name) {
+  const message = `Hello, ${name}!`;
+  console.log(message);
+}
+displayGreeting("name")
+
+// Return values
+// Functions can return values using the `return` keyword.
+// This is useful when we want to calculate a result and use it elsewhere,
+// instead of just logging to the console.
+// The returned value can be stored in a variable like any other data.
+function createGreetingMessage(name) {
+  const message = `ohio, ${name}`;
+  return message;
+}
+// storing function to a variable
+const greetingMessage = createGreetingMessage('Christopher');
+console.log(greetingMessage);
