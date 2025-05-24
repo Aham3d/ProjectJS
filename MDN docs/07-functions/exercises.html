@@ -19,6 +19,15 @@
         const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada'];
         const para = document.querySelector('p');
 
+        function chooseName() {
+            const randomIndex = Math.floor(Math.random() * names.length); // get a random index
+
+            const randomName = names[randomIndex]; // get the name at that index
+
+            para.textContent = `Random Name = ${randomName}`; // set the text content of the paragraph
+        }
+
+
         
 
     </script>
