@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Function scope example</title>
+  </head>
+<body>
+
+  <script>
+    const x = 1;
+
+    function a() {
+      const y = 2;
+    }
+
+    function b() {
+      const z = 3;
+    }
+
+    function output(value) {
+    const para = document.createElement('p');           // 1. Create a new <p> element
+    document.body.appendChild(para);                    // 2. Add the <p> to the end of the <body>
+    para.textContent = `Value: ${value}`;               // 3. Set its text to display the value passed in
+    }
+
+    output(x); // value of x will be printed in the browser
+    // output(y); // Reference error - because of function scope, both y and z are inside the function, so output() cannot access when called from global scope.
+ 
+    function a2() {
+        const y = 2;
+        output(y); // works, as the output() function is being called inside the other function
+    }
+
+    function a3() {
+        const y = 2;
+        output(x);
+    }
+
+  </script>
+</body>
+</html>
