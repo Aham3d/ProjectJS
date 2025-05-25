@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    
+
+    <p id="p1"></p>
+    <p id="p2"></p>
 
     <script>
 
@@ -17,24 +19,39 @@
 
         // given code
         const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada'];
-        const para = document.querySelector('p');
+        const para1 = document.querySelector('#p1');
 
         function chooseName() {
             const randomIndex = Math.floor(Math.random() * names.length); // get a random index
 
             const randomName = names[randomIndex]; // get the name at that index
 
-            para.textContent = `Random Name = ${randomName}`; // set the text content of the paragraph
+            para1.textContent = `Random Name from task1 = ${randomName}`; // set the text content of the paragraph
         }
+
+        chooseName();
 
         // Functions 2
         // In this task, you return to the problem posed in Task 1, with the aim of improving it. The three improvements we want you to make are:
-        // Refactor the code that generates the random number into a separate function called random(), which takes as parameters two generic 
-        // bounds that the random number should be between, and returns the result. Update the chooseName() function so that it makes 
-        // use of the random number function, takes the array to choose from as a parameter (making it more flexible), and returns the result.
-        // Print the returned result into the paragraph (para)'s textContent.
+        // Refactor the code that generates the random number into a separate function called random(), 
+        // which takes as parameters two generic bounds that the random number should be between, and returns the result.
+        // Update the chooseName() function so that it makes use of the random number function, takes the array to choose from as a parameter 
+        // (making it more flexible), and returns the result.
+        // Print the returned result into the paragraph (para)'s textContent.  
         
+        const para2 = document.querySelector('#p2')
+        function random(min, max) {
+            const num = Math.floor(Math.random() * (max - min)) + min;
+            return num;
+        }
+
+        function chooseItem(array) {
+            const choice = array[random(0, array.length)];
+            return choice;
+        }
+
+        para2.textContent = `Random name from task 2 = ${chooseItem(names)}`;   
 
     </script>
 </body>
-</html>l
+</html>
