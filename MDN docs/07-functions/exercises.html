@@ -10,6 +10,10 @@
     <p id="p1"></p>
     <p id="p2"></p>
 
+    <p>random name picker. click the button to pick a name</p>
+    <button id="btn">Pick a Name</button>
+    <p id="para"></p>
+
     <script>
 
 
@@ -51,6 +55,16 @@
         }
 
         para2.textContent = `Random name from task 2 = ${chooseItem(names)}`;   
+
+        // making it dynamic - using a button so the user can click it and see a random name appear in the paragraph.
+        const para = document.querySelector('#para');
+        const btn = document.querySelector('#btn');
+
+        // adding click event to the button
+        btn.addEventListener('click', function() {
+            const randomName = chooseItem(names);
+            para.textContent = `your Random Name is ${randomName}`;
+        }) 
 
     </script>
 </body>
